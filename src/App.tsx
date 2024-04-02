@@ -2,6 +2,11 @@ import Input from "./components/Input"
 import Todo from "./components/Todo"
 
 function App() {
+
+  const dummyData:{title:string,note:string} = {
+    title:"Gym",
+    note:"Exercices"
+  }
  
   return (
     <>
@@ -9,9 +14,9 @@ function App() {
 
     <h1 className="underline text-6xl m-6">To do app</h1>
      
-     <Input/>
+     <Input />
 
-     <Todo/>
+     <Todo dummyData = {dummyData}/>
     </div>
     </>
   )
