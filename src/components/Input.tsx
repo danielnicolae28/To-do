@@ -10,7 +10,7 @@ const Input = () => {
     </div>
     <div  className='absolute right-10 bottom-7'>
          <button className=' p-2 m-2 border rounded-md cursor-pointer'>Check List</button>
-         <button className='p-2 m-2  border rounded-md cursor-pointer '>Add</button>
+         <button onClick={()=>{alert('works')}} className='p-2 m-2  border rounded-md cursor-pointer '>Add</button>
     </div>
     </div>
   )
