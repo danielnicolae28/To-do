@@ -1,22 +1,32 @@
 import Input from "./components/Input"
 import Todo from "./components/Todo"
 import {useState} from 'react'
+import { DummyType,Title,Note } from "./types/types";
 
-type dummyStateType ={title:string,note:string}[]
+
 
 function App() {
 
-const [dummy,setDummy] = useState<dummyStateType>([]);
+
+const [dummy,setDummy] = useState<DummyType[]>([]);
+const [title,setTitle] = useState<Title>();
+const [note,setNote] = useState<Note>();
+let index = 0;
 
 
 
-  const dummyData:{title:string,note:string} = {
-    title:"Gym",
-    note:"Exercices"
-  }
+console.log(title,note)
+console.log(dummy)
 
-const  dummyDataHandler = (newData:{title:string,note:string})=>{
-  setDummy([newData,...dummy])
+const  dummyDataHandler = ()=>{
+
+if(title && note !== undefined){
+
+  setDummy([{title,note,id:index++},...dummy])
+  setTitle("")
+  setNote("")
+}
+ 
 }
  
   return (
@@ -25,9 +35,16 @@ const  dummyDataHandler = (newData:{title:string,note:string})=>{
 
     <h1 className="underline text-6xl m-6">To do app</h1>
      
-     <Input />
+     <Input setTitle={setTitle} setNote={setNote} dummyDataHandler={dummyDataHandler} title={title} note={note} />
+{ 
+dummy.map(
+(data)=>(
 
-     <Todo dummyData = {dummyData}/>
+  <Todo title= {data.title} note={data.note} key={data.id}/>
+  )
+  )
+}
+
     </div>
     </>
   )
