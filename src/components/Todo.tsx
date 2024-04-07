@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 
-const Todo = ({title,note}:{DummyType}) => {
+const Todo = ({title,note,id,deleteHandler}:{DummyType;deleteHandler:(id:number)=>void}) => {
 
   const [checked,setChecked]=useState<boolean>(false);
 
@@ -28,7 +28,7 @@ lineThrough = 'line-through'
           
             <div className="w-8 h-8 flex justify-center items-center rounded-full border  ">
 
-            <button className="">x</button>
+            <button className="" onClick={()=>{console.log(id);deleteHandler(id)}}>x</button>
             </div>
         
             <input type="checkbox" onChange={(e)=>{setChecked(e.target.checked);console.log(e.target.checked)}} />

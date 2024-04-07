@@ -22,12 +22,21 @@ const  dummyDataHandler = ()=>{
 
 if(title && note !== undefined){
 
-  setDummy([{title,note,id:index++},...dummy])
+  setDummy([{title,note,id:Math.random()},...dummy])
   setTitle("")
   setNote("")
 }
  
 }
+
+const deleteHandler = (id:number)=>{
+
+  const filtered = dummy.filter((data)=>data.id !== id)
+  setDummy(filtered)
+  console.log(dummy)
+}
+
+
  
   return (
     <>
@@ -40,7 +49,7 @@ if(title && note !== undefined){
 dummy.map(
 (data)=>(
 
-  <Todo title= {data.title} note={data.note} key={data.id}/>
+  <Todo title= {data.title} note={data.note} key={data.id} id={data.id} deleteHandler={deleteHandler}/>
   )
   )
 }
