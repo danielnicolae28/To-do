@@ -1,12 +1,15 @@
-import { BsPencilSquare } from "react-icons/bs";
+
 import { DummyType} from "../types/types";
 import { useState } from "react";
+
 
 
 
 const Todo = ({title,note,id,deleteHandler}:{DummyType;deleteHandler:(id:number)=>void}) => {
 
   const [checked,setChecked]=useState<boolean>(false);
+  
+
 
 let lineThrough:string = ''
   if(checked === true){
@@ -18,24 +21,31 @@ lineThrough = 'line-through'
 
 
   return (
-    <div className="w-9/12 h-32 flex justify-between  mt-10 border rounded-2xl">
+    <>
+
+
+    <div className="w-9/12 h-32 flex  justify-between  mt-10 border rounded-2xl">
         <div className="m-3">
 
-        <h1 className={`text-xl ${lineThrough}`}>{title}</h1>
+   <h1 className={`text-xl ${lineThrough}`}>{title}</h1> 
         <h2 className= {`${lineThrough}`}>{note}</h2>
         </div>
-        <div className=" m-2 p-2 flex flex-col justify-between items-center w-24">
-          
+        <div className=" m-2 p-2 flex flex-col justify-between items-center w-24 relative">
+          <div>
+
             <div className="w-8 h-8 flex justify-center items-center rounded-full border  ">
 
             <button className="" onClick={()=>{console.log(id);deleteHandler(id)}}>x</button>
             </div>
         
             <input type="checkbox" onChange={(e)=>{setChecked(e.target.checked);console.log(e.target.checked)}} />
-            <BsPencilSquare/>
-
+  
+          </div>
         </div>
     </div>
+        
+  
+    </>
   )
 }
 

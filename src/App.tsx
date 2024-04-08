@@ -11,8 +11,6 @@ function App() {
 const [dummy,setDummy] = useState<DummyType[]>([]);
 const [title,setTitle] = useState<Title>();
 const [note,setNote] = useState<Note>();
-let index = 0;
-
 
 
 console.log(title,note)
@@ -49,7 +47,7 @@ const deleteHandler = (id:number)=>{
 dummy.map(
 (data)=>(
 
-  <Todo title= {data.title} note={data.note} key={data.id} id={data.id} deleteHandler={deleteHandler}/>
+  <Todo setTitle={setTitle} title= {data.title} note={data.note} key={data.id} id={data.id} deleteHandler={deleteHandler}/>
   )
   )
 }
