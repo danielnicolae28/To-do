@@ -40,7 +40,7 @@ const deleteHandler = (id:number)=>{
     <>
     <div className="w-full h-screen flex flex-col items-center">
 
-    <h1 className="underline text-6xl m-6">To do app</h1>
+    <h1 className="font-semibold text-6xl my-16">To do app</h1>
      
      <Input setTitle={setTitle} setNote={setNote} dummyDataHandler={dummyDataHandler} title={title} note={note} />
 { 

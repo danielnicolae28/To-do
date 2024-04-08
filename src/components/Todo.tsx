@@ -24,23 +24,21 @@ lineThrough = 'line-through'
     <>
 
 
-    <div className="w-9/12 h-32 flex  justify-between  mt-10 border rounded-2xl">
-        <div className="m-3">
+    <div className="w-9/12 h-32 md:w-6/12 md:h-48 flex  justify-between  mt-10 border rounded-2xl bg-white">
+        <div className="mx-8 my-4">
 
-   <h1 className={`text-xl ${lineThrough}`}>{title}</h1> 
-        <h2 className= {`${lineThrough}`}>{note}</h2>
+   <h1 className={`text-2xl md:text-4xl md:m-4 ${lineThrough}`}>{title}</h1> 
+        <h2 className= {`md:m-4 md:text-2xl ${lineThrough}`}>{note}</h2>
         </div>
-        <div className=" m-2 p-2 flex flex-col justify-between items-center w-24 relative">
-          <div>
+        <div className=" m-2 p-2 md:m-4 flex flex-col justify-between items-center w-24 relative">
+         
+            <div className="w-8 h-8 md:w-12 md:h-12 flex justify-center items-center rounded-full border border-neutral-950  cursor-pointer"onClick={()=>{console.log(id);deleteHandler(id)}}>
 
-            <div className="w-8 h-8 flex justify-center items-center rounded-full border  ">
-
-            <button className="" onClick={()=>{console.log(id);deleteHandler(id)}}>x</button>
+            <button className="text-xl font-semibold" >x</button>
             </div>
         
-            <input type="checkbox" onChange={(e)=>{setChecked(e.target.checked);console.log(e.target.checked)}} />
+            <input type="checkbox" className="text-gray-700" onChange={(e)=>{setChecked(e.target.checked);console.log(e.target.checked)}} />
   
-          </div>
         </div>
     </div>
         

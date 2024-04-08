@@ -7,5 +7,7 @@ html{
   font-size: 62.5%;
 }
 body{
-  overflow-y: hidden;
+  overflow-x: hidden;
+  margin-bottom: 4rem;
+  background-color: #EEF5FC;
 }
